@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>web-inicial</display-name>
+
+	<servlet>
+		<servlet-name>login_servlet</servlet-name>
+		<servlet-class>com.atos.servlet.Login_Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login_servlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<!-- ***** MECANISMO DE ARRANQUE DE SPRING EN UNA APLICACION WEB (OBLIGATORIO)***** -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- PARAMETRO QUE INDICA NOMBRE Y RUTA DEL FICHERO DE CONFIGURACION DE 
+		SPRING -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:com/atos/spring/modelo.xml</param-value>
+	</context-param>
+	<!-- ***** FIN MECANISMO DE ARRANQUE DE SPRING EN UNA APLICACION WEB (OBLIGATORIO)***** -->
+
+	<!-- ***** MECANISMO DE ARRANQUE DE LA APLICACION ***** -->
+	<welcome-file-list>
+		<welcome-file>jsp/login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
